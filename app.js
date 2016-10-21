@@ -110,16 +110,16 @@ var app = angular.module('felApp', ['ngMaterial'])
 		// If two sets have been traversed
 		if (currentSet == endingSet && idx > currentSet.set.length -1) {
 			$scope.testCompleted = true;
-			$http.post('https://script.google.com/macros/s/AKfycbw1QfTfjCI2E9L95G8dx74u1-HlKMh5tLFoGMfERIeGArl6nAhz/exec',
+			return $http.post('https://script.google.com/macros/s/AKfycbw1QfTfjCI2E9L95G8dx74u1-HlKMh5tLFoGMfERIeGArl6nAhz/exec',
 				{
 					recordedInfo: JSON.stringify(recordedTimes)
 				})
 			.then(function (response) {
+				console.log("POST sent.");
 				if(response) {
 					console.log("Response is:" + response);
 				}
 			});
-
 		// If one set has been traversed 
 		} else if (idx > currentSet.set.length - 1) {
 			$scope.setTraversed = true;
