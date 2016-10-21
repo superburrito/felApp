@@ -107,16 +107,15 @@ var app = angular.module('felApp', ['ngMaterial'])
 		})
 		console.log(recordedTimes);
 
+		var apiUrlPOST = '';
+
 		// If two sets have been traversed
 		if (currentSet == endingSet && idx > currentSet.set.length -1) {
 			$scope.testCompleted = true;
 			return $http({
   			method: 'POST',
-  			url: 'https://spreadsheets.google.com/feeds/list//1/public/basic?alt=json-in-script&callback=1uYLxVUejSUUWpYYxV03gnE6dthI21zJe8ipn_BW2QHM',
+  			url: apiUrlPOST,
 				data: { recordedInfo: JSON.stringify(recordedTimes) },
-				headers: {
-					'Access-Control-Allow-Origin': '*'
-				}
 			})
 			.then(function (response) {
 				console.log("POST sent.");
