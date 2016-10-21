@@ -97,14 +97,12 @@ var app = angular.module('felApp', ['ngMaterial'])
 		
 		// Get time difference and log it		
 		var imageSwitchedTime = new Date();
-		var minutesSpent = imageSwitchedTime.getMinutes() - imageLoadedTime.getMinutes();
-		var secondsSpent = imageSwitchedTime.getSeconds() - imageLoadedTime.getSeconds();
+		var secondsSpent = (imageSwitchedTime.getTime() - imageLoadedTime.getTime())/1000;
 		imageLoadedTime = imageSwitchedTime;
 
 		recordedTimes.push({
 			setName: currentSet.name,
 			imageIndex: idx,
-			minutes: minutesSpent,
 			seconds: secondsSpent
 		})
 		console.log(recordedTimes);
