@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Image Test</title>
+
+        <!-- Angular Material requires Angular.js Libraries -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="./app.js"></script>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+
+    </head>
+
+    <body ng-app="felApp" ng-controller="MainCtrl">
+        <div layout="column" layout-align="center center" ng-hide="setTraversed || testCompleted">
+            <h2>Image Header</h2>
+            <img src="{{currentImageSrc}}">
+            <md-button class="md-primary md-raised" ng-click="loadNextImage()">Load Next Image</md-button>
+        </div>
+        <div layout="column" layout-align="center center" ng-show="setTraversed">   
+            <h2>You've viewed the image set!</h2>
+            <md-button class="md-primary md-raised" ng-click="loadNextSet()">Load Next Set
+            </md-button>
+        </div>
+        <div layout="column" layout-align="center center" ng-show="testCompleted">   
+            <h2>You're done with the test! Thank you!</h2>
+        </div>
+    </body>
+</html>
