@@ -112,7 +112,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 			$scope.testCompleted = true;
 			return $http({
   			method: 'POST',
-  			url: 'https://script.google.com/macros/s/AKfycbw1QfTfjCI2E9L95G8dx74u1-HlKMh5tLFoGMfERIeGArl6nAhz/exec',
+  			url: 'https://spreadsheets.google.com/feeds/list//1/public/basic?alt=json-in-script&callback=1uYLxVUejSUUWpYYxV03gnE6dthI21zJe8ipn_BW2QHM',
 				data: { recordedInfo: JSON.stringify(recordedTimes) },
 				headers: {
 					'Access-Control-Allow-Origin': '*'
