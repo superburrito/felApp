@@ -6,7 +6,7 @@ var app = angular.module('felApp', ['ngMaterial'])
     .primaryPalette('pink')
     .accentPalette('orange');
 })
-.controller('MainCtrl', function ($scope, $http) {
+.controller('MainCtrl', function ($scope, $http, $window) {
 
 	$scope.setTraversed = false;
 
@@ -73,7 +73,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		]
 	}
 
-	// Setup for each set, randomise starting set
+	// Randomise starting set
 	var startingSet = imageSet1;
 	var endingSet = imageSet2;
 	var dice = Math.random();
@@ -85,7 +85,6 @@ var app = angular.module('felApp', ['ngMaterial'])
 
 	// Set up logging
 	var recordedTimes = [];
-
 	var idx = 0;
 	var imageLoadedTime = new Date();
 	$scope.currentImageSrc = currentSet.set[idx];
@@ -103,8 +102,10 @@ var app = angular.module('felApp', ['ngMaterial'])
 		recordedTimes.push({
 			setName: currentSet.name,
 			imageIndex: idx,
+			imageUrl: currentSet.set[idx],
 			seconds: secondsSpent
 		})
+
 		console.log(recordedTimes);
 
 		var apiUrlPOST = '';
@@ -112,6 +113,8 @@ var app = angular.module('felApp', ['ngMaterial'])
 		// If two sets have been traversed
 		if (currentSet == endingSet && idx > currentSet.set.length -1) {
 			$scope.testCompleted = true;
+			$window.localStorage.setItem('felApp-record', JSON.stringify(recordedTimes));
+		/*
 			return $http({
   			method: 'POST',
   			url: apiUrlPOST,
@@ -122,8 +125,9 @@ var app = angular.module('felApp', ['ngMaterial'])
 				if(response) {
 					console.log("Response is:" + response);
 				}
-			});
-		// If one set has been traversed 
+			});*/
+
+		// If only one set has been traversed 
 		} else if (idx > currentSet.set.length - 1) {
 			$scope.setTraversed = true;
 		}
@@ -139,4 +143,4 @@ var app = angular.module('felApp', ['ngMaterial'])
 		$scope.currentImageSrc = currentSet.set[idx];
 	}
 
-});	
+})
