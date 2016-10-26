@@ -108,13 +108,12 @@ var app = angular.module('felApp', ['ngMaterial'])
 
 		console.log(recordedTimes);
 
-		//var apiUrlPOST = '';
+		var apiUrlPOST = '';
 
-// If two sets have been traversed
+		// If two sets have been traversed
 		if (currentSet == endingSet && idx > currentSet.set.length -1) {
 			$scope.testCompleted = true;
 			$window.localStorage.setItem('felApp-record', JSON.stringify(recordedTimes));
-			
 		/*
 			return $http({
   			method: 'POST',
