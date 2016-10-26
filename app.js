@@ -110,19 +110,10 @@ var app = angular.module('felApp', ['ngMaterial'])
 
 		//var apiUrlPOST = '';
 
-		// If two sets have been traversed
+// If two sets have been traversed
 		if (currentSet == endingSet && idx > currentSet.set.length -1) {
 			$scope.testCompleted = true;
-			//convert recordedTimes to a string 
-			var result = JSON.stringify(recordedTimes);
-			$window.localStorage.setItem('felApp-record', result);
-			//save as file, offer it as a download to user
-			var url = 'data:application/json;base64,' + btoa(result);
-    			chrome.downloads.download({
-        			url: https://superburrito.github.io/felApp/,
-        			filename: 'result.json'
-   				});
-			
+			$window.localStorage.setItem('felApp-record', JSON.stringify(recordedTimes));
 			
 		/*
 			return $http({
