@@ -111,7 +111,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		var apiUrlPOST = '';
 
 		// If two sets have been traversed
-		if (currentSet == endingSet && idx > currentSet.set.length -1) {
+		if (currentSet == endingSet && idx > currentSet.set.length ) {
 			$scope.testCompleted = true;
 			$window.localStorage.setItem('felApp-record', JSON.stringify(recordedTimes));
 		/*
@@ -137,10 +137,10 @@ var app = angular.module('felApp', ['ngMaterial'])
 		// Switch to second image set
 		currentSet = endingSet;
 		// Restart counter
-		idx = 0;
+		idx = 1;
 		// Load Image, unhide view
 		$scope.setTraversed = false;
-		$scope.currentImageSrc = currentSet.set[idx+1];
+		$scope.currentImageSrc = currentSet.set[idx];
 	}
 
 })
