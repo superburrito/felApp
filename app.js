@@ -45,6 +45,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 	var imageSet2 = {
 		name: 'ordinary set',
 		set: [
+			'https://s25.postimg.org/hccgk16kv/Thailand_4.jpg',
 			'https://s13.postimg.org/yagwzkg6v/US_4.jpg',
 			'https://s13.postimg.org/4jtsdsv7b/US_3.jpg',
 			'https://s13.postimg.org/6po38aynr/US_2.jpg',
@@ -102,7 +103,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		recordedTimes.push({
 			setName: currentSet.name,
 			imageIndex: idx,
-			imageUrl: currentSet.set[idx],
+			imageUrl: currentSet.set[idx-1],
 			seconds: secondsSpent
 		})
 
@@ -111,7 +112,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		var apiUrlPOST = '';
 
 		// If two sets have been traversed
-		if (currentSet == endingSet && idx > currentSet.set.length ) {
+		if (currentSet == endingSet && idx > currentSet.set.length -1) {
 			$scope.testCompleted = true;
 			$window.localStorage.setItem('felApp-record', JSON.stringify(recordedTimes));
 		/*
@@ -128,7 +129,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 			});*/
 
 		// If only one set has been traversed 
-		} else if (idx > currentSet.set.length -1) {
+		} else if (idx > currentSet.set.length - 1) {
 			$scope.setTraversed = true;
 		}
 	}
