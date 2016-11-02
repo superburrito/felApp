@@ -137,7 +137,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		// Switch to second image set
 		currentSet = endingSet;
 		// Restart counter
-		idx = 1;
+		idx = -1;
 		// Load Image, unhide view
 		$scope.setTraversed = false;
 		$scope.currentImageSrc = currentSet.set[idx];
