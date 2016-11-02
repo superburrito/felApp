@@ -102,7 +102,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		recordedTimes.push({
 			setName: currentSet.name,
 			imageIndex: idx,
-			imageUrl: currentSet.set[idx],
+			imageUrl: currentSet.set[idx-1],
 			seconds: secondsSpent
 		})
 
