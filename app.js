@@ -128,7 +128,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 			});*/
 
 		// If only one set has been traversed 
-		} else if (idx > currentSet.set.length - 1) {
+		} else if (idx > currentSet.set.length ) {
 			$scope.setTraversed = true;
 		}
 	}
