@@ -140,7 +140,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		idx = 0;
 		// Load Image, unhide view
 		$scope.setTraversed = false;
-		$scope.currentImageSrc = currentSet.set[idx];
+		$scope.currentImageSrc = currentSet.set[idx-1];
 	}
 
 })
