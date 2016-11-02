@@ -102,7 +102,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		recordedTimes.push({
 			setName: currentSet.name,
 			imageIndex: idx,
-			imageUrl: currentSet.set[idx-1],
+			imageUrl: currentSet.set[idx],
 			seconds: secondsSpent
 		})
 
@@ -140,7 +140,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 		idx = 0;
 		// Load Image, unhide view
 		$scope.setTraversed = false;
-		$scope.currentImageSrc = currentSet.set[idx-1];
+		$scope.currentImageSrc = currentSet.set[idx];
 	}
 
 })
