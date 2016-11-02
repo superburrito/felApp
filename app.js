@@ -45,7 +45,6 @@ var app = angular.module('felApp', ['ngMaterial'])
 	var imageSet2 = {
 		name: 'ordinary set',
 		set: [
-			'https://s25.postimg.org/hccgk16kv/Thailand_4.jpg',
 			'https://s13.postimg.org/yagwzkg6v/US_4.jpg',
 			'https://s13.postimg.org/4jtsdsv7b/US_3.jpg',
 			'https://s13.postimg.org/6po38aynr/US_2.jpg',
