@@ -91,7 +91,7 @@ var app = angular.module('felApp', ['ngMaterial'])
 
 	$scope.loadNextImage = function () {
 		// Update image, reset time counter
-		idx += 1;
+		idx += 1;	
 		$scope.currentImageSrc = currentSet.set[idx];
 		
 		// Get time difference and log it		
@@ -99,16 +99,15 @@ var app = angular.module('felApp', ['ngMaterial'])
 		var secondsSpent = (imageSwitchedTime.getTime() - imageLoadedTime.getTime())/1000;
 		imageLoadedTime = imageSwitchedTime;
 
-		recordedTimes.push({
-			setName: currentSet.name,
-			imageIndex: idx,
-			imageUrl: currentSet.set[idx-1],
-			seconds: secondsSpent
-		})
-
-		console.log(recordedTimes);
-
-		var apiUrlPOST = '';
+		if (idx !== 0) {
+			recordedTimes.push({
+				setName: currentSet.name,
+				imageIndex: idx,
+				imageUrl: currentSet.set[idx-1],
+				seconds: secondsSpent
+			})
+			console.log(recordedTimes);
+		}
 
 		// If two sets have been traversed
 		if (currentSet == endingSet && idx > currentSet.set.length -1) {
@@ -136,11 +135,12 @@ var app = angular.module('felApp', ['ngMaterial'])
 	$scope.loadNextSet = function () {
 		// Switch to second image set
 		currentSet = endingSet;
-		// Restart counter
-		idx = 0;
+		// Restart counter from -1
+		idx = -1;
 		// Load Image, unhide view
 		$scope.setTraversed = false;
 		$scope.currentImageSrc = currentSet.set[idx];
+		$scope.loadNextImage();
 	}
 
 })
